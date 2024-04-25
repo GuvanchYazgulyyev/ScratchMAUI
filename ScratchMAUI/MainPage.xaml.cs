@@ -12,5 +12,10 @@ namespace ScratchMAUI
             _mainViewModel = mainViewModel;
             BindingContext = mainViewModel;
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        {
+            await Shell.Current.DisplayAlert("Hi!", "Hello, this is tapped from the category", "Ok");
+        }
     }
 }
