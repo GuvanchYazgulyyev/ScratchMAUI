@@ -6,34 +6,118 @@
              x:Class="ScratchMAUI.MainPage"
              x:DataType="viewmodels:MainViewModel"
              Title="Scratc">
+    <ScrollView>
+        <VerticalStackLayout>
 
-    <VerticalStackLayout>
-        <Label
-            Text="Facto Of Day"
-            Margin="25"
-            FontSize="30"/>
-        <CollectionView ItemsSource="{Binding Categories}">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:CategoryModel">
-                    <Grid RowDefinitions="Auto, Auto"
-                          Margin="5,0,5,0">
-                        <Image Grid.Row="0"
+            <!--Üst Kısım-->
+            <Grid RowDefinitions="*, Auto"
+              ColumnDefinitions="*, Auto, *"
+              Margin="0,0,0,30">
+                <Border Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    StrokeThickness="0"
+                    BackgroundColor="{StaticResource Primary}"
+                    MinimumHeightRequest="150">
+
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="{StaticResource Primary}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource Secondary}" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Label Text="{Binding FactOfTheDay.Fact}"
+                       TextColor="White"
+                       Padding="15"
+                       FontSize="20"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+                </Border>
+                <Frame Grid.Row="1"
+                   Grid.Column="1"
+                   Padding="20,15"
+                   Margin="0,-25"
+                   CornerRadius="25"
+                   WidthRequest="260"
+                   BorderColor="Transparent"
+                   BackgroundColor="{StaticResource Primary}">
+                    <Label Text="Fact of the Day"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="17"
+                       HorizontalTextAlignment="Center"/>
+                </Frame>
+            </Grid>
+            <!--Üst Kısım-->
+            <!--Categori Kısım-->
+            <Label Text="Categories"
+               TextColor="{StaticResource Secondary}"
+               FontSize="25"
+               Margin="5,15"
+               FontAttributes="Bold"/>
+            <!--Categori Kısım-->
+
+            <CollectionView ItemsSource="{Binding Categories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <!--Küçük Kardlar-->
+                    <DataTemplate x:DataType="models:CategoryModel">
+                        <Grid RowDefinitions="Auto, Auto"
+                          Margin="8,0,8,0"
+                          HeightRequest="200"
+                          WidthRequest="150">
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"/>
+                            </Grid.GestureRecognizers>
+
+
+                            <Border StrokeThickness="0"
+                                StrokeShape="RoundRectangle 15,15,0,0"
+                                HeightRequest="160"
+                                WidthRequest="150"
+                                BackgroundColor="{StaticResource Secondary}">
+                                <Image Grid.Row="0"
                                Source="{Binding Image}"
                                Aspect="AspectFill"
                                HeightRequest="160"
                                WidthRequest="150"/>
-                        <Label Grid.Row="1"
+                            </Border>
+
+                            <Label Grid.Row="1"
                                Text="{Binding Name}"
                                HorizontalTextAlignment="Center"
                                BackgroundColor="{StaticResource Primary}"
                                TextColor="White"/>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                    <!--Küçük Kardlar-->
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--Random Fact Kısım-->
+            <Label Text="Random Fact"
+        TextColor="{StaticResource Secondary}"
+        FontSize="25"
+        Margin="5,15"
+        FontAttributes="Bold"/>
+            <!--Rando Fact Kısım-->
+            <!--Alttaki Veriler Kısım-->
+            <CollectionView ItemsSource="{Binding RadomFacts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:FactModel">
+                        <Frame CornerRadius="0"
+                           Margin="8,12">
+                            <Label Text="{Binding Fact}"
+                                   FontSize="14"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--Alttaki Veriler Kısım-->
 
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

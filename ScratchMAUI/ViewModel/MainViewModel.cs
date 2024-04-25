@@ -1,4 +1,5 @@
-﻿using ScratchMAUI.Models;
+﻿using ScratchMAUI.Data;
+using ScratchMAUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScratchMAUI.ViewModel
 {
-   public class MainViewModel
+    public class MainViewModel
     {
         public FactModel FactOfTheDay { get; set; }
         public IEnumerable<CategoryModel> Categories { get; set; }
@@ -15,6 +16,8 @@ namespace ScratchMAUI.ViewModel
         public MainViewModel()
         {
             Categories = CategoryModel.GetCategoryModels();
+            FactOfTheDay = SeedData.GetFactModel();
+            RadomFacts = SeedData.GetRandomFactsdata();
         }
     }
 }
