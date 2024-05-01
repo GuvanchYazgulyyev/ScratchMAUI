@@ -49,13 +49,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\cience.png" />
+	  <None Remove="Resources\Images\animal.png" />
 	  <None Remove="Resources\Images\entertainment.png" />
 	  <None Remove="Resources\Images\human.png" />
-	  <None Remove="Resources\Images\lion.png" />
-	  <None Remove="Resources\Images\music.png" />
+	  <None Remove="Resources\Images\misc.png" />
+	  <None Remove="Resources\Images\science_technology.png" />
 	  <None Remove="Resources\Images\sparrow.png" />
-	  <None Remove="Resources\Images\world_language.png" />
+	  <None Remove="Resources\Images\word_language.png" />
 	</ItemGroup>
 
 	<ItemGroup>

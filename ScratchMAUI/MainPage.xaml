@@ -71,7 +71,8 @@
 
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer
-                                    Tapped="TapGestureRecognizer_Tapped"/>
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=GoToCategoryPlayCommand}"
+                                    CommandParameter="{Binding Name}"/>
                             </Grid.GestureRecognizers>
 
 
@@ -110,6 +111,13 @@
                     <DataTemplate x:DataType="models:FactModel">
                         <Frame CornerRadius="0"
                            Margin="8,12">
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=GoToFactDetailPageCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+
                             <Label Text="{Binding Fact}"
                                    FontSize="14"/>
                         </Frame>

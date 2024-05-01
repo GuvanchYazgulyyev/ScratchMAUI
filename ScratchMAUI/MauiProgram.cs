@@ -19,7 +19,13 @@ namespace ScratchMAUI
                 })
                 .UseMauiCommunityToolkit();
             builder.Services.AddSingleton<MainViewModel>();
-            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainPage>(); 
+            builder.Services.AddSingleton<ITextToSpeech>(TextToSpeech.Default);
+            builder.Services.AddTransient<CategoryfactViewModel>();
+            builder.Services.AddTransient<CategoryFactsPage>();
+            builder.Services.AddTransient<FactDetailViewModel>();
+            builder.Services.AddTransient<FactDetailPage>();
+            
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

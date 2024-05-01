@@ -2,8 +2,11 @@ namespace ScratchMAUI.Pages;
 
 public partial class FactDetailPage : ContentPage
 {
-	public FactDetailPage()
-	{
-		InitializeComponent();
-	}
+    private readonly FactDetailViewModel _viewModel;
+    public FactDetailPage(FactDetailViewModel viewModel)
+    {
+        InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = _viewModel;
+    }
 }

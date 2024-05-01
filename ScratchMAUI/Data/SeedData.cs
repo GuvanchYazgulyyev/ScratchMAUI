@@ -2401,7 +2401,14 @@ namespace ScratchMAUI.Data
                 "Donald-Duck-comics-were-banned-from-Finland-because-he-doesn-t-wear-trousers",
                 "Donald Duck comics were banned from Finland because he doesn't wear trousers.",
                 "Entertainment"
-              )
+              ),
+               new FactModel(
+                342,
+                "Bir Japon balığının hafıza süresi üç saniyedir.",
+                "Japon balığının üç saniyelik bir hafıza süresi vardır",
+                "Bir Japon balığının hafıza süresi üç saniyedir.",
+                "Animal"
+              ),
             };
             return facts;
         }
@@ -2412,5 +2419,10 @@ namespace ScratchMAUI.Data
 
         public static IEnumerable<FactModel> GetRandomFactsdata(int count = 10) =>
             Facts.OrderBy(f => Guid.NewGuid()).Take(count);
+
+        public static IEnumerable<FactModel> GetCategoryFacts(string categoryName) =>
+            Facts.Where(f => f.CategoryName == categoryName)
+            .OrderBy(f => f.Id)
+            .ToList();
     }
 }

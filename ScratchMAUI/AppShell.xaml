@@ -15,12 +15,12 @@
     <ShellContent
         Title="Category Fact"
         ContentTemplate="{DataTemplate pages:CategoryFactsPage}"
-        Route="MainPage" />
+        Route="MainPage1" />
 
     <ShellContent
         Title="Fact Detail"
         ContentTemplate="{DataTemplate pages:FactDetailPage}"
-        Route="MainPage" />
+        Route="MainPage2" />
 
 
 </Shell>
